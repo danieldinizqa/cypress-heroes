@@ -1,76 +1,81 @@
-Cypress Heroes - Automação de Testes E2E 
-Este repositório contém uma suíte de testes ponta a ponta (End-to-End) desenvolvida com Cypress. O projeto foi estruturado para garantir a resiliência do sistema Cypress Heroes, cobrindo desde a limpeza de dados até o cadastro completo de personagens com mídia.
+![Cypress](https://img.shields.io/badge/-cypress-%23E9E9E9?style=for-the-badge&logo=cypress&logoColor=30E3CA)
 
- O que este teste faz?
+Cypress Heroes - E2E Testing Automation 
+This repository contains an End-to-End (E2E) testing suite developed with Cypress. The project was structured to ensure the resilience of the Cypress Heroes system, covering everything from database cleanup to full character registration with media.
 
-O script executa um fluxo completo e independente:
+ What does this test do?
+The script executes a complete and independent flow:
 
-Autenticação: Realiza o login administrativo automaticamente.
+Authentication: Automatically performs administrative login.
 
-Cleanup (Limpeza): Identifica heróis existentes e os exclui para evitar duplicidade, garantindo que o ambiente comece "zerado".
+Cleanup: Identifies existing heroes and deletes them to avoid duplication, ensuring the environment starts "fresh".
 
-Cadastro em Massa: Realiza o cadastro de uma lista completa de heróis, validando o upload de fotos via Fixtures, seleção de poderes e persistência no banco.
+Bulk Registration: Automates the registration of a full list of heroes, validating:
 
- Requisitos de Ambiente (Importante)
+Photo uploads via Fixtures.
 
-Para os testes funcionarem, o ecossistema do sistema deve estar ativo. Atenção aos diretórios:
+Power selection from dropdowns.
 
-Frontend (Client): Deve estar rodando na porta 3000.
+Database persistence.
 
-Backend (Server): Deve estar rodando na porta 3001 (geralmente em um repositório ou pasta separada).
+ Environment Requirements (Important)
+For the tests to run, the system ecosystem must be active. Pay attention to the directories:
 
-Banco de Dados: Certifique-se de que o serviço do banco de dados (ex: Prisma/SQLite) está ativo.
+Frontend (Client): Must be running on port 3000.
 
-🏁 Passo a Passo para Rodar
-1. Clonar o Repositório
-Abra o terminal na pasta onde deseja salvar o projeto:
+Backend (Server): Must be running on port 3001 (usually in a separate repository or folder).
+
+Database: Ensure the database service (e.g., Prisma/SQLite) is active.
+
+🏁 Step-by-Step Execution
+
+1. Clone the Repository
+Open the terminal in the folder where you want to save the project:
 
 Bash
 
 git clone https://github.com/danieldinizqa/cypress-heroes.git
 
-2. Abrir a Pasta Correta
+2. Open the Correct Folder
 
-⚠️ MUITO IMPORTANTE: Para evitar erros de caminho (path), abra o seu VS Code ou Terminal diretamente na pasta raiz do projeto de automação:
+⚠️ VERY IMPORTANT: To avoid path errors, open your VS Code or Terminal directly in the automation project's root folder:
 
 Bash
 
 cd cypress-heroes
 
-3. Instalar Dependências e Iniciar
-Instale as bibliotecas necessárias:
+3. Install Dependencies and Start
+Install the necessary libraries:
 
 Bash
 
 npm install
 
-Para rodar o projeto em modo de desenvolvimento (caso necessário):
+To run the project in development mode (if required):
 
 Bash
 
 npm run dev
 
-4. Executar os Testes
-Com o Client e o Server já rodando em seus respectivos terminais, execute o Cypress:
+4. Run the Tests
+With the Client and Server already running in their respective terminals, execute Cypress:
 
-Interface Visual (Recomendado):
+Visual Interface (Recommended):
 
 Bash
 
 npx cypress open
 
-Modo Headless (Execução rápida via terminal):
+Headless Mode (Fast execution via terminal):
 
 Bash
 
 npx cypress run
+ Project Structure
+cypress/e2e/: Main test scripts (.cy.js).
 
+cypress/fixtures/: Images and static files for upload testing.
 
- Estrutura do Projeto
-cypress/e2e/: Scripts de teste principais (.cy.js).
+cypress.config.ts/js: Global environment and base URL configurations.
 
-cypress/fixtures/: Imagens e arquivos estáticos para teste de upload.
-
-cypress.config.ts: Configurações de ambiente e URLs base.
-
-⭐ Desenvolvido por Daniel Diniz para o portfólio de QA Automation.
+⭐ Developed by Daniel Diniz for his QA Automation portfolio.
