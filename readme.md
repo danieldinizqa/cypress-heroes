@@ -1,58 +1,76 @@
-# Cypress Heroes Demo Application
+Cypress Heroes - Automação de Testes E2E 
+Este repositório contém uma suíte de testes ponta a ponta (End-to-End) desenvolvida com Cypress. O projeto foi estruturado para garantir a resiliência do sistema Cypress Heroes, cobrindo desde a limpeza de dados até o cadastro completo de personagens com mídia.
 
-This is a demo application that shows how to use Cypress to run end-to-end,
-component, and API tests against an application.
+ O que este teste faz?
 
-## Getting Started
+O script executa um fluxo completo e independente:
 
-The app is a mono repo that uses npm workspaces. Once you clone the project,
-install the dependencies at the root folder:
+Autenticação: Realiza o login administrativo automaticamente.
 
-```sh
+Cleanup (Limpeza): Identifica heróis existentes e os exclui para evitar duplicidade, garantindo que o ambiente comece "zerado".
+
+Cadastro em Massa: Realiza o cadastro de uma lista completa de heróis, validando o upload de fotos via Fixtures, seleção de poderes e persistência no banco.
+
+ Requisitos de Ambiente (Importante)
+
+Para os testes funcionarem, o ecossistema do sistema deve estar ativo. Atenção aos diretórios:
+
+Frontend (Client): Deve estar rodando na porta 3000.
+
+Backend (Server): Deve estar rodando na porta 3001 (geralmente em um repositório ou pasta separada).
+
+Banco de Dados: Certifique-se de que o serviço do banco de dados (ex: Prisma/SQLite) está ativo.
+
+🏁 Passo a Passo para Rodar
+1. Clonar o Repositório
+Abra o terminal na pasta onde deseja salvar o projeto:
+
+Bash
+
+git clone https://github.com/danieldinizqa/cypress-heroes.git
+
+2. Abrir a Pasta Correta
+
+⚠️ MUITO IMPORTANTE: Para evitar erros de caminho (path), abra o seu VS Code ou Terminal diretamente na pasta raiz do projeto de automação:
+
+Bash
+
+cd cypress-heroes
+
+3. Instalar Dependências e Iniciar
+Instale as bibliotecas necessárias:
+
+Bash
+
 npm install
-```
 
-After that a few more things need to be set up (databases and such), to do so run:
+Para rodar o projeto em modo de desenvolvimento (caso necessário):
 
-```sh
-npm run setup
-```
+Bash
 
-
-To launch the app for development, run:
-
-```sh
 npm run dev
-```
 
-This will start both the client and server apps in dev mode. The site will be
-available at http://localhost:3000.
+4. Executar os Testes
+Com o Client e o Server já rodando em seus respectivos terminais, execute o Cypress:
 
-## App Overview
+Interface Visual (Recomendado):
 
-The Cypress Heroes app consists of a frontend client app written in React that
-uses Vite, as well as a backend app that uses NestJS.
+Bash
 
-### React Client App
+npx cypress open
 
-The React client app is located in the **client** folder. It is a standard React [Vite](https://vitejs.dev/) app.
+Modo Headless (Execução rápida via terminal):
 
-Todo: fill out
+Bash
 
-### NestJS Server App
+npx cypress run
 
-The server app is in the **server** folder. It is built with the [NestJS](https://nestjs.com/) Node.js framework. It uses [Prisma](https://www.prisma.io/) for the database ORM.
 
-#### Database seeding and resetting
+ Estrutura do Projeto
+cypress/e2e/: Scripts de teste principais (.cy.js).
 
-The database is seeded from the **server/prisma/seed.ts** script when you set up the app. If at any time you want to reset the database back to its initial state, run:
+cypress/fixtures/: Imagens e arquivos estáticos para teste de upload.
 
-```sh
-npm run resetdb
-```
+cypress.config.ts: Configurações de ambiente e URLs base.
 
-## Environment Variables
-
-The client app uses an environment variable to know what the URL is for the
-backend api named `VITE_API_URL`. It defaults to "http://localhost:3001" for use
-in dev mode, and should be overriden in other environments/modes.
+⭐ Desenvolvido por Daniel Diniz para o portfólio de QA Automation.
